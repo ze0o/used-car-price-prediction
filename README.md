@@ -24,22 +24,22 @@ Full details: [docs/01_problem_statement.md](docs/01_problem_statement.md)
 [Craigslist Cars & Trucks Data](https://www.kaggle.com/datasets/austinreese/craigslist-carstrucks-data) (Kaggle),
 scraped from every US Craigslist region, 4 April to 5 May 2021. **426,880 rows × 26 columns (1.45 GB)**.
 The text and link columns (`description`, `url`, `region_url`, `image_url`) are removed, because NLP is not allowed;
-this leaves a 16.6 MB file in the repo. After removing reposts and impossible values: **225,703 listings, 18 features**.
+this leaves a 16.6 MB file in the repo. After removing reposts and impossible values: **207,644 listings, 18 features**.
 Details: [data/README.md](data/README.md)
 
 ## Key EDA findings
 
 | Finding | Number |
 | --- | --- |
-| Reposts of the same car | 158,258 rows (37% of the file); one car posted 261 times |
+| Reposts of the same car | 180,118 rows (42% of the file); one car posted 261 times |
 | Placeholder prices | 32,895 listings at $0 (7.7%) |
-| Median / mean price (clean) | $11,999 / $16,334 (skew 2.07; −0.22 after log) |
-| Car age vs price | Spearman −0.70: $37,859 at 0–1 years → $14,995 at 6–8 → ~$5,000 after 15 |
-| Odometer vs price | Spearman −0.59: $27,995 under 25k miles → $5,500 above 200k |
-| Condition | salvage $2,800 → good $8,500 → like new $14,995 → new $23,700 |
-| Fuel / body type | diesel $27,999 vs gas $10,995; pickup $22,995 vs sedan $8,999 |
-| Missing values | size 64.2% (drop); condition 39.7%, cylinders 36.2%: missing listings are pricier → "unknown" level |
-| Price outliers | 4.2% by IQR, 0.4% on the log scale (real cars, kept) |
+| Median / mean price (clean) | $11,950 / $15,957 (skew 2.12; −0.21 after log) |
+| Car age vs price | Spearman −0.71: $36,947 at 0–1 years → $14,800 at 6–8 → ~$5,000 after 15 |
+| Odometer vs price | Spearman −0.60: $27,973 under 25k miles → $5,000 above 200k |
+| Condition | salvage $2,800 → good $8,500 → like new $14,650 → new $22,943 |
+| Fuel / body type | diesel $25,900 vs gas $10,950; pickup $22,900 vs sedan $8,995 |
+| Missing values | size 63.4% (drop); condition 37.9%, cylinders 34.8%: missing listings are pricier → "unknown" level |
+| Price outliers | 4.3% by IQR, 0.4% on the log scale (real cars, kept) |
 
 Details: [notebooks/02_eda.ipynb](notebooks/02_eda.ipynb)
 

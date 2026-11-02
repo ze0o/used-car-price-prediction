@@ -31,15 +31,17 @@ def load_raw(path=DATA_PATH):
 def repost_mask(df):
     """True for rows that repeat a listing already seen earlier in the file.
 
-    Dealers post the same car in several nearby regions. If copies of one car land in
+    Sellers post the same car in several nearby regions. If copies of one car land in
     both the train and test sets, the test score is inflated, so only the first copy is kept.
-    - with a VIN: same VIN, price, odometer, year and model
-    - without a VIN: same price, year, manufacturer, model, odometer and region
+    - same VIN, price, odometer, year and model
+    - or (mostly listings without a VIN) same price, year, manufacturer, model and exact
+      odometer reading, in any region. Two different cars matching on all five is very rare:
+      fewer than 1% of these groups contain more than one distinct VIN.
     """
-    with_vin = df['VIN'].notna() & df.duplicated(['VIN', 'price', 'odometer', 'year', 'model'])
-    no_vin = (df['VIN'].isna() & df['odometer'].notna() & df['model'].notna()
-              & df.duplicated(['price', 'year', 'manufacturer', 'model', 'odometer', 'region']))
-    return with_vin | no_vin
+    same_vin = df['VIN'].notna() & df.duplicated(['VIN', 'price', 'odometer', 'year', 'model'])
+    same_details = (df['odometer'].notna() & df['model'].notna()
+                    & df.duplicated(['price', 'year', 'manufacturer', 'model', 'odometer']))
+    return same_vin | same_details
 
 
 def clean(df, verbose=True):

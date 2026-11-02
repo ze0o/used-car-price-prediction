@@ -6,10 +6,10 @@ run first (see `02_target_and_features.md`); everything here **learns from the d
 
 | Feature | Treatment | Why | Lesson |
 | --- | --- | --- | --- |
-| price (target) | Compare raw `price` vs `np.log(price)`; convert predictions back with `np.exp` before scoring | Skew 2.07 → −0.22; IQR outliers 4.2% → 0.4% | 06 |
+| price (target) | Compare raw `price` vs `np.log(price)`; convert predictions back with `np.exp` before scoring | Skew 2.12 → −0.21; IQR outliers 4.3% → 0.4% | 06 |
 | car_age | `StandardScaler`; optionally bin with `pd.cut` into 0–1 / 2–3 / 4–5 / 6–8 / 9–11 / 12–15 / 16–20 / 21+ | Value drops fast in the first years then flattens; bins let linear models follow the curve | 06 |
-| odometer | Set < 100 miles on cars older than 1 year to missing → `SimpleImputer(strategy='median')` → `PowerTransformer` (Yeo-Johnson) or `StandardScaler` | Placeholders at 0 / 1; skew 0.59; median because of the right tail | 05, 06, 13 |
-| condition | One-hot with "unknown" as its own level; test `OrdinalEncoder` (salvage < fair < good < excellent < like new < new, unknown → middle rank) as the alternative | Clear order, but missingness carries information (dealer listings: $14,998 vs $10,000 median), which one-hot keeps | 05, 06 |
+| odometer | Set < 100 miles on cars older than 1 year to missing → `SimpleImputer(strategy='median')` → `PowerTransformer` (Yeo-Johnson) or `StandardScaler` | Placeholders at 0 / 1; skew 0.60; median because of the right tail | 05, 06, 13 |
+| condition | One-hot with "unknown" as its own level; test `OrdinalEncoder` (salvage < fair < good < excellent < like new < new, unknown → middle rank) as the alternative | Clear order, but missingness carries information (dealer listings: $14,900 vs $9,999 median), which one-hot keeps | 05, 06 |
 | cylinders | Text → number ("6 cylinders" → 6, "other" → missing) → `SimpleImputer(strategy='median')`; test keeping it as a category with "unknown" instead | It is a count stored as text; price rises with it; 36% missing | 05, 06 |
 | manufacturer, fuel, title_status, transmission, drive, type, state, (paint_color) | `SimpleImputer(strategy='constant', fill_value='unknown')` → `OneHotEncoder(handle_unknown='ignore')` | Nominal; "unknown" kept as a level because missingness is informative | 05, 06, 13 |
 | model (candidate) | Keep the most frequent N models, rest → "other", then one-hot | 24,166 spellings; one-hot on all is impossible | 06 |
@@ -38,7 +38,7 @@ Decision Tree, Random Forest and Gradient Boosting do not need scaling or transf
 6. **Random Forest / Bagging**, then **Gradient Boosting** (lesson 15), with feature importance, partial
    dependence and SHAP for explanation (lesson 16).
 
-The training set has about 180,000 rows, so KNN and slow grid searches can be tuned on a random sample first.
+The training set has about 166,000 rows, so KNN and slow grid searches can be tuned on a random sample first.
 
 ## Order of operations
 

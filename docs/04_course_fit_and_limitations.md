@@ -11,7 +11,7 @@
 | Data source, how it was collected, size, features, target | [data/README.md](../data/README.md), [01_data_overview.ipynb](../notebooks/01_data_overview.ipynb) |
 | Data dictionary | [01_data_overview.ipynb](../notebooks/01_data_overview.ipynb) |
 | Success metrics | MAE, RMSE, R² vs a median baseline ([01](01_problem_statement.md)) |
-| 15k+ rows, 10+ columns | 426,880 × 26 raw; 225,703 × 18 features after cleaning |
+| 15k+ rows, 10+ columns | 426,880 × 26 raw; 207,644 × 18 features after cleaning |
 | No NLP / text data | `description` and the link columns are removed before loading |
 | EDA: target and what it represents | [02_eda.ipynb](../notebooks/02_eda.ipynb) §2 |
 | EDA: categorical or continuous, balanced, distribution plot | §3 |
@@ -46,7 +46,7 @@ Left out because the course does not teach them: text / NLP on `description`, ta
 (replaced by top-N + "other"), ANOVA and Cramér's V (replaced by median-price-per-category tables), and
 `TransformedTargetRegressor` (replaced by taking the log of `y` by hand and `np.exp` on the predictions).
 Support Vector Machines (lesson 17) are not planned: the course shows them for classification, and kernel SVMs
-are too slow for about 180,000 training rows.
+are too slow for about 166,000 training rows.
 
 ## Limitations
 
@@ -56,8 +56,9 @@ are too slow for about 180,000 training rows.
   shortage). Prices today may be different; the model would need fresh data to be used now.
 - **Seller-typed fields:** `condition`, `model`, `cylinders` and `type` are typed or chosen by the seller and are
   often missing (27–40%) or inconsistent. `model` has 24,166 spellings.
-- **Reposts found by rule:** reposts are removed by matching VIN / price / mileage. Some copies with a slightly
-  changed price or no VIN may remain.
+- **Reposts found by rule:** reposts are removed by matching VIN or price + year + make + model + exact mileage.
+  After the split no test car has an exact twin in training, but a copy re-posted with a slightly changed price
+  or mileage would not be caught.
 - **Placeholders left in:** charm prices ($x,995) and round odometers (100,000) are real seller habits and are kept;
   a few remaining placeholder values may add noise.
 - **No trim level, options or accident history**, which explain part of the price difference between two cars of

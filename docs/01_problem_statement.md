@@ -34,7 +34,7 @@ The pitch, in the Lightning Talk's own words, is a **"Zillow for used cars"**.
 ## Goals
 
 1. Build a regression model that estimates a car's price from information a seller knows when posting the ad.
-2. Beat the naive baseline: predicting the median price ($11,999) for every car.
+2. Beat the naive baseline: predicting the median price ($11,950) for every car.
 3. Find which features drive price (age, mileage, make, condition, fuel, body type, title) and by how much.
 4. Compare models from the course: Linear Regression → Ridge / Lasso → Decision Tree → Random Forest → Gradient
    Boosting, with and without a log transform of the target.
@@ -58,4 +58,4 @@ first Linear Regression are run.
 [Craigslist Cars & Trucks Data](https://www.kaggle.com/datasets/austinreese/craigslist-carstrucks-data)
 (Austin Reese, Kaggle). The data was collected by **scraping** Craigslist listings across the US between
 4 April and 5 May 2021. Raw size: **426,880 rows × 26 columns (1.45 GB)**. After removing text, reposts and
-impossible values: **225,703 listings** with 18 usable features. Details: [data/README.md](../data/README.md).
+impossible values: **207,644 listings** with 18 usable features. Details: [data/README.md](../data/README.md).
