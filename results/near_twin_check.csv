@@ -1,0 +1,5 @@
+model,all test cars,with near twin,no near twin,share of error drop on twins
+Linear Regression,4151.0,3314.0,4440.0,25.4
+Decision Tree,4196.0,3468.0,4447.0,22.0
+Gradient Boosting,3303.0,2600.0,3546.0,26.7
+Random Forest,3231.0,2383.0,3524.0,32.4

@@ -34,7 +34,7 @@ Everything in this project comes from the supervised ML lessons (01–17).
 | Ridge, Lasso, ElasticNet | 12 | Regularized linear models |
 | Pipelines, ColumnTransformer, SimpleImputer, GridSearchCV | 13 | Leak-free preprocessing and tuning |
 | KNN, Decision Trees, Bagging, Random Forest, Gradient Boosting | 08, 14, 15 | Non-linear models |
-| Feature importance, partial dependence, SHAP | 16 | Explaining the price drivers |
+| Feature importance, partial dependence, SHAP (`KernelExplainer`) | 16 | Explaining the price drivers (notebook 06) |
 
 **Note on regression versions:** the course notebooks show KNN, trees and ensembles on classification problems.
 This project uses the regression versions of the same algorithms (`KNeighborsRegressor`, `DecisionTreeRegressor`,
@@ -61,6 +61,10 @@ are too slow for about 166,000 training rows.
   or mileage would not be caught.
 - **Placeholders left in:** charm prices ($x,995) and round odometers (100,000) are real seller habits and are kept;
   a few remaining placeholder values may add noise.
+- **Near-identical listings:** 25.7% of test cars have a training listing with the same make, model, year and
+  mileage within 1%. Scores on the full test set are therefore a little optimistic; the error on cars without such a
+  twin ($3,524 for Random Forest vs $3,231 overall) is the fairer number.
+- **Odometer typos:** very low readings on old cars teach the model that almost no miles means a cheap car.
 - **No trim level, options or accident history**, which explain part of the price difference between two cars of
   the same make, model and age.
 
@@ -71,5 +75,8 @@ are too slow for about 166,000 training rows.
 - [ ] Keep `paint_color` and a reduced `model` feature, or leave them out for simplicity?
 - [x] Which models go in the final deck? Random Forest (best: MAE $3,231, R² 0.80), Gradient Boosting (runner-up,
   $3,303), Linear Regression (readable coefficients) and the median baseline. See [05_tree_models.ipynb](../notebooks/05_tree_models.ipynb).
-- [ ] Part of Random Forest's lead may come from near-identical reposts (slightly changed price or mileage) that the
-  repost rule cannot catch. Check in stage 11 whether its advantage over Gradient Boosting holds.
+- [x] Part of Random Forest's lead may come from near-identical reposts. Checked in stage 11: on test cars without a
+  near twin in training, Random Forest ($3,524) and Gradient Boosting ($3,546) are tied; about $3,500 is the realistic
+  error for a new listing.
+- [ ] Odometer typos: 1,152 cars aged 8+ show 1,000 miles or less (median price $5,499), likely "150" typed for
+  150,000. Add a fixed rule that sets these readings to missing in a later version?

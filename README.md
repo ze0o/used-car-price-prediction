@@ -5,8 +5,8 @@ Capstone project (General Assembly Data Science, Bahrain). Used-car prices on Cr
 model that estimates a car's **fair asking price** from its age, mileage, make, condition and other details, so
 sellers can price realistically and buyers can spot bad deals.
 
-**Status:** stage 10 of 14 complete (Tree models). Best model so far: **Random Forest, typical error $3,231 (R² 0.80)**,
-against $9,675 for a "predict the median" baseline.
+**Status:** stage 11 of 14 complete (Explainability). Best model: **Random Forest, typical error $3,231 on the test set
+(R² 0.80)**, about **$3,500 on genuinely new listings**, against $9,675 for a "predict the median" baseline.
 
 ## Problem statement
 
@@ -63,9 +63,24 @@ All models predict `log(price)` and are scored in dollars after turning the pred
 - Linear Regression explains the drivers in plain numbers: each extra year of age lowers the price by about 6.7%,
   holding the other features fixed ([results/linear_coefficients.csv](results/linear_coefficients.csv)).
 - Weakest spot: cars under $5,000, where the error is 75% of the price on average (junk and parts cars).
+- **Honest error:** 25.7% of test cars have a near-identical listing in training (same make, model, year, mileage
+  within 1%). On the other cars Random Forest ($3,524) and Gradient Boosting ($3,546) are tied, so about $3,500 is
+  the realistic error for a new listing ([results/near_twin_check.csv](results/near_twin_check.csv)).
 
 Details: [04_linear_models.ipynb](notebooks/04_linear_models.ipynb), [05_tree_models.ipynb](notebooks/05_tree_models.ipynb),
 [results/metrics.csv](results/metrics.csv)
+
+## What drives the price (Random Forest, feature importance + partial dependence + SHAP)
+
+| Rank | Driver | Effect, everything else unchanged |
+| --- | --- | --- |
+| 1 | Age | −5 to −10% a year between about 5 and 15 years; flat after about 20 (old cars keep their value) |
+| 2 | Mileage | −4 to −9% per 10,000 miles between 40k and 200k |
+| 3 | "Truck" features | diesel +65% vs gas, 4wd +38% vs front-wheel drive, pickup +35% vs sedan, 8 cylinders ≈ +60% vs 4 |
+| 4 | Make and condition | about 6% average move each; "fair" condition is the cheapest |
+| – | State, model name, transmission, title status | 2% or less once the rest is known |
+
+Details: [06_explainability.ipynb](notebooks/06_explainability.ipynb), [results/feature_importance.csv](results/feature_importance.csv)
 
 ## Repository structure
 
@@ -84,12 +99,15 @@ used-car-price-prediction/
 │   ├── 02_eda.ipynb
 │   ├── 03_preprocessing_and_baseline.ipynb
 │   ├── 04_linear_models.ipynb
-│   └── 05_tree_models.ipynb
+│   ├── 05_tree_models.ipynb
+│   └── 06_explainability.ipynb
 ├── results/
 │   ├── metrics.csv
 │   ├── best_params.json
 │   ├── linear_coefficients.csv
-│   └── test_predictions.csv
+│   ├── test_predictions.csv
+│   ├── near_twin_check.csv
+│   └── feature_importance.csv
 ├── src/
 │   ├── make_slim.py
 │   ├── clean.py
@@ -102,6 +120,7 @@ used-car-price-prediction/
 
 | Stage | Date | What was added |
 | --- | --- | --- |
+| 11. Explainability | 2026-11-02 | `notebooks/06_explainability.ipynb`: near-twin check of the test set, feature importance, partial dependence (numeric and categorical, in dollars, vs Linear Regression), SHAP with `KernelExplainer` on the 12 original features |
 | 10. Tree models | 2026-11-02 | `notebooks/05_tree_models.ipynb`: Decision Tree, Random Forest and Gradient Boosting tuned with `GridSearchCV`; overfitting check, all-model comparison, error by price band, `results/test_predictions.csv` |
 | 9. Linear models | 2026-11-02 | `notebooks/04_linear_models.ipynb`: Linear Regression, Ridge, Lasso, ElasticNet; log vs raw price target, residuals, coefficients (`results/linear_coefficients.csv`) |
 | 8. Preprocessing & baseline | 2026-11-02 | `src/prep.py` and `notebooks/03_preprocessing_and_baseline.ipynb`: split, leakage check, top-300 models, linear and tree preprocessors, median baseline. Repost rule in `src/clean.py` now matches copies across regions (test cars with an exact twin in training: 9.5% → 0) |
@@ -113,7 +132,7 @@ used-car-price-prediction/
 | 2. Problem statement | 2026-11-01 | `docs/01_problem_statement.md`: business problem, audience, goals, success metrics |
 | 1. Project setup | 2026-11-01 | Slim dataset (`data/vehicles_slim.csv.gz`, `src/make_slim.py`), cleaning rules (`src/clean.py`), README, `requirements.txt`, `.gitignore` |
 
-**Next:** stage 11: explain the predictions (feature importance and partial dependence, lesson 16).
+**Next:** stage 12: pricing tool: flag over- and under-priced listings and measure how often the estimate is within 10% / 20% of the asking price.
 
 ## How to run
 
@@ -124,4 +143,5 @@ jupyter notebook notebooks/
 
 Run the notebooks in order. All of them read `data/vehicles_slim.csv.gz` and apply the cleaning rules in `src/clean.py`;
 notebooks 03–05 also use `src/prep.py`, so every model gets the same split and features. Notebook 05 takes about
-70 minutes (mostly Gradient Boosting, which runs on one CPU core); the others take a few minutes each.
+70 minutes (mostly Gradient Boosting, which runs on one CPU core) and notebook 06 about 7 minutes; the others take a
+few minutes each.
