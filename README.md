@@ -5,7 +5,7 @@ Capstone project (General Assembly Data Science, Bahrain). Used-car prices on Cr
 model that estimates a car's **fair asking price** from its age, mileage, make, condition and other details, so
 sellers can price realistically and buyers can spot bad deals.
 
-**Status:** stage 12 of 14 complete (Pricing tool). Best model: **Random Forest, typical error $3,231 on the test set
+**Status:** stage 13 of 14 complete (Results & recommendations). Best model: **Random Forest, typical error $3,231 on the test set
 (R² 0.80)**, about **$3,500 on genuinely new listings**, against $9,675 for a "predict the median" baseline.
 
 ## Problem statement
@@ -18,7 +18,7 @@ sellers can price realistically and buyers can spot bad deals.
 - **Audience:** private sellers, buyers, small dealers, online marketplaces
 - **Metrics:** MAE (main, in dollars), RMSE, R², compared with a "predict the median price" baseline
 
-Full details: [docs/01_problem_statement.md](docs/01_problem_statement.md)
+Full details: [docs/01_problem_statement.md](docs/01_problem_statement.md) · Final results and recommendations: [docs/05_results_and_recommendations.md](docs/05_results_and_recommendations.md)
 
 ## Dataset
 
@@ -106,7 +106,8 @@ used-car-price-prediction/
 │   ├── 01_problem_statement.md
 │   ├── 02_target_and_features.md
 │   ├── 03_preprocessing_plan.md
-│   └── 04_course_fit_and_limitations.md
+│   ├── 04_course_fit_and_limitations.md
+│   └── 05_results_and_recommendations.md
 ├── notebooks/
 │   ├── 01_data_overview.ipynb
 │   ├── 02_eda.ipynb
@@ -136,6 +137,7 @@ used-car-price-prediction/
 
 | Stage | Date | What was added |
 | --- | --- | --- |
+| 13. Results & recommendations | 2026-11-03 | `docs/05_results_and_recommendations.md`: final model, model comparison, honest error, pricing tool, price drivers, goals check, recommendations, limitations, next steps |
 | 12. Pricing tool | 2026-11-02 | `notebooks/07_pricing_tool.ipynb`: share of estimates within 10/20/30%, 80% fair price range from a validation split (80.0% test coverage), deal flags and what they catch, `price_car()` demo; `near_twin_mask()` moved into `src/prep.py` |
 | 11. Explainability | 2026-11-02 | `notebooks/06_explainability.ipynb`: near-twin check of the test set, feature importance, partial dependence (numeric and categorical, in dollars, vs Linear Regression), SHAP with `KernelExplainer` on the 12 original features |
 | 10. Tree models | 2026-11-02 | `notebooks/05_tree_models.ipynb`: Decision Tree, Random Forest and Gradient Boosting tuned with `GridSearchCV`; overfitting check, all-model comparison, error by price band, `results/test_predictions.csv` |
@@ -149,7 +151,7 @@ used-car-price-prediction/
 | 2. Problem statement | 2026-11-01 | `docs/01_problem_statement.md`: business problem, audience, goals, success metrics |
 | 1. Project setup | 2026-11-01 | Slim dataset (`data/vehicles_slim.csv.gz`, `src/make_slim.py`), cleaning rules (`src/clean.py`), README, `requirements.txt`, `.gitignore` |
 
-**Next:** stage 13: final results and recommendations (`docs/05_results_and_recommendations.md`).
+**Next:** stage 14: presentation slides.
 
 ## How to run
 

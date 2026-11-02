@@ -15,7 +15,7 @@ bigger and noisier than it is.
 
 Business problem → why it matters → what ML will do:
 used-car prices are set by guesswork → sellers lose time or money and buyers overpay → a regression model learns
-from about 225,000 real listings what similar cars sell for and gives every car a data-based price estimate.
+from about 207,000 real listings what similar cars sell for and gives every car a data-based price estimate.
 
 The pitch, in the Lightning Talk's own words, is a **"Zillow for used cars"**.
 
@@ -50,8 +50,8 @@ The pitch, in the Lightning Talk's own words, is a **"Zillow for used cars"**.
 | MAE relative to the median price | Puts the error in context: a $3,000 error matters more on a $6,000 car than on a $40,000 one |
 
 Every model is compared on the same test set against a **baseline that predicts the median price for every car**.
-A concrete success target (for example MAE below a set dollar amount) will be set after the baseline and the
-first Linear Regression are run.
+**Outcome:** the final Random Forest reaches MAE $3,231 (−67% vs the baseline) and R² 0.80, and is within 20% of
+the asking price for 59.5% of cars. See [05_results_and_recommendations.md](05_results_and_recommendations.md).
 
 ## Data
 
