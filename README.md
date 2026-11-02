@@ -5,7 +5,7 @@ Capstone project (General Assembly Data Science, Bahrain). Used-car prices on Cr
 model that estimates a car's **fair asking price** from its age, mileage, make, condition and other details, so
 sellers can price realistically and buyers can spot bad deals.
 
-**Status:** stage 11 of 14 complete (Explainability). Best model: **Random Forest, typical error $3,231 on the test set
+**Status:** stage 12 of 14 complete (Pricing tool). Best model: **Random Forest, typical error $3,231 on the test set
 (R² 0.80)**, about **$3,500 on genuinely new listings**, against $9,675 for a "predict the median" baseline.
 
 ## Problem statement
@@ -82,6 +82,19 @@ Details: [04_linear_models.ipynb](notebooks/04_linear_models.ipynb), [05_tree_mo
 
 Details: [06_explainability.ipynb](notebooks/06_explainability.ipynb), [results/feature_importance.csv](results/feature_importance.csv)
 
+## Pricing tool
+
+The model gives an estimate plus an **80% fair price range: estimate −30% to +43%**, set on a validation split of the
+training data.
+
+| Check (test set) | Result |
+| --- | --- |
+| Estimate within 20% of the asking price | 59.5% of cars (Linear Regression 50.7%, median guess 16.3%) |
+| Asking prices inside the 80% range | **80.0%** (85–87% for cars between $10k and $35k; 62% under $5k) |
+| Flagged below / above the range | 9.9% / 10.1%: damaged cars, down-payment and placeholder prices ($1,000, $123,456), collector cars |
+
+Details: [07_pricing_tool.ipynb](notebooks/07_pricing_tool.ipynb), [results/pricing_accuracy.csv](results/pricing_accuracy.csv)
+
 ## Repository structure
 
 ```text
@@ -100,14 +113,17 @@ used-car-price-prediction/
 │   ├── 03_preprocessing_and_baseline.ipynb
 │   ├── 04_linear_models.ipynb
 │   ├── 05_tree_models.ipynb
-│   └── 06_explainability.ipynb
+│   ├── 06_explainability.ipynb
+│   └── 07_pricing_tool.ipynb
 ├── results/
 │   ├── metrics.csv
 │   ├── best_params.json
 │   ├── linear_coefficients.csv
 │   ├── test_predictions.csv
 │   ├── near_twin_check.csv
-│   └── feature_importance.csv
+│   ├── feature_importance.csv
+│   ├── pricing_accuracy.csv
+│   └── price_range.json
 ├── src/
 │   ├── make_slim.py
 │   ├── clean.py
@@ -120,6 +136,7 @@ used-car-price-prediction/
 
 | Stage | Date | What was added |
 | --- | --- | --- |
+| 12. Pricing tool | 2026-11-02 | `notebooks/07_pricing_tool.ipynb`: share of estimates within 10/20/30%, 80% fair price range from a validation split (80.0% test coverage), deal flags and what they catch, `price_car()` demo; `near_twin_mask()` moved into `src/prep.py` |
 | 11. Explainability | 2026-11-02 | `notebooks/06_explainability.ipynb`: near-twin check of the test set, feature importance, partial dependence (numeric and categorical, in dollars, vs Linear Regression), SHAP with `KernelExplainer` on the 12 original features |
 | 10. Tree models | 2026-11-02 | `notebooks/05_tree_models.ipynb`: Decision Tree, Random Forest and Gradient Boosting tuned with `GridSearchCV`; overfitting check, all-model comparison, error by price band, `results/test_predictions.csv` |
 | 9. Linear models | 2026-11-02 | `notebooks/04_linear_models.ipynb`: Linear Regression, Ridge, Lasso, ElasticNet; log vs raw price target, residuals, coefficients (`results/linear_coefficients.csv`) |
@@ -132,7 +149,7 @@ used-car-price-prediction/
 | 2. Problem statement | 2026-11-01 | `docs/01_problem_statement.md`: business problem, audience, goals, success metrics |
 | 1. Project setup | 2026-11-01 | Slim dataset (`data/vehicles_slim.csv.gz`, `src/make_slim.py`), cleaning rules (`src/clean.py`), README, `requirements.txt`, `.gitignore` |
 
-**Next:** stage 12: pricing tool: flag over- and under-priced listings and measure how often the estimate is within 10% / 20% of the asking price.
+**Next:** stage 13: final results and recommendations (`docs/05_results_and_recommendations.md`).
 
 ## How to run
 
@@ -143,5 +160,5 @@ jupyter notebook notebooks/
 
 Run the notebooks in order. All of them read `data/vehicles_slim.csv.gz` and apply the cleaning rules in `src/clean.py`;
 notebooks 03–05 also use `src/prep.py`, so every model gets the same split and features. Notebook 05 takes about
-70 minutes (mostly Gradient Boosting, which runs on one CPU core) and notebook 06 about 7 minutes; the others take a
+70 minutes (mostly Gradient Boosting, which runs on one CPU core) and notebook 06 about 7 minutes and notebook 07 about 3 minutes; the others take a
 few minutes each.

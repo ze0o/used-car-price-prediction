@@ -159,3 +159,17 @@ def save_params(name, params, path='../results/best_params.json'):
     data = json.load(open(path)) if os.path.exists(path) else {}
     data[name] = {k: (v.item() if hasattr(v, 'item') else v) for k, v in params.items()}
     json.dump(data, open(path, 'w'), indent=2)
+
+
+def near_twin_mask(X_train, X_test, tol=0.01, min_miles=100):
+    """True for each test car that has a 'near twin' in training: same manufacturer, model and model year,
+    and an odometer reading within `tol` (1%) or `min_miles` (100 miles), whichever is larger.
+    Such pairs are often the same car re-posted with an edited price or mileage (see notebook 06)."""
+    cols = ['manufacturer', 'model', 'year', 'odometer']
+    tr = X_train[cols].dropna(subset=['model', 'odometer'])
+    te = X_test[cols].reset_index(drop=True).reset_index().dropna(subset=['model', 'odometer'])
+    pairs = te.merge(tr, on=['manufacturer', 'model', 'year'], suffixes=('', '_train'))
+    close = (pairs['odometer'] - pairs['odometer_train']).abs() <= np.maximum(tol * pairs['odometer'], min_miles)
+    mask = np.zeros(len(X_test), dtype=bool)
+    mask[pairs.loc[close, 'index'].unique()] = True
+    return mask

@@ -1,0 +1,9 @@
+model,cars,within 10%,within 20%,within 30%,median % error
+Baseline (median price),all cars,8.7,16.3,25.6,55.7
+Baseline (median price),no near twin,8.3,15.9,25.1,56.5
+Linear Regression,all cars,26.8,50.7,68.7,19.6
+Linear Regression,no near twin,25.6,48.6,66.2,20.7
+Gradient Boosting,all cars,33.3,59.2,75.7,16.0
+Gradient Boosting,no near twin,31.9,56.8,73.7,16.9
+Random Forest,all cars,34.5,59.5,75.1,15.8
+Random Forest,no near twin,32.2,56.5,72.7,17.0
