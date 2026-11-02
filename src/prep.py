@@ -6,6 +6,7 @@ preprocessing are identical for all models.
 
 import json
 import os
+import warnings
 
 import numpy as np
 import pandas as pd
@@ -17,6 +18,11 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import OneHotEncoder, PowerTransformer, StandardScaler
 
 from clean import load_clean
+
+# A few rare levels (for example a manufacturer with 2 listings) appear only in the test set or
+# in one CV fold; OneHotEncoder(handle_unknown='ignore') encodes them as all zeros, which is the
+# intended behaviour, so its warning about it is silenced.
+warnings.filterwarnings('ignore', message='Found unknown categories')
 
 RANDOM_STATE = 42
 TOP_MODELS = 300            # most frequent model spellings kept; the rest become "other"

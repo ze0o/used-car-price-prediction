@@ -1,0 +1,6 @@
+model,target,mae,rmse,r2,mae_pct_of_median,median_abs_error
+Baseline (median price),price,9675.1912,14552.936,-0.0865,80.7477,6650.0
+Lasso,log(price),4151.4119,7829.5146,0.6855,34.6471,2150.2218
+Linear Regression,log(price),4150.9159,7886.3779,0.6809,34.6429,2150.9291
+Ridge,log(price),4149.7652,7862.8218,0.6828,34.6333,2150.4802
+ElasticNet,log(price),4149.1626,7767.575,0.6905,34.6283,2151.5496

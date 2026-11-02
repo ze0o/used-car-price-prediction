@@ -1,0 +1,432 @@
+,pct_change,unit,feature
+car_age,-34.33,per 1 standard deviation (scaled feature),car_age
+odometer,-21.86,per 1 standard deviation (scaled feature),odometer
+cylinders_num,9.61,per 1 standard deviation (scaled feature),cylinders_num
+manufacturer_alfa-romeo,7.81,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_aston-martin,105.97,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_audi,5.6,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_bmw,1.58,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_buick,-23.54,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_cadillac,0.76,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_chevrolet,-10.02,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_chrysler,-30.56,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_dodge,-21.35,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_ferrari,429.91,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_fiat,-43.67,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_ford,-5.98,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_gmc,5.57,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_harley-davidson,-24.37,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_honda,-12.72,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_hyundai,-29.62,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_infiniti,-4.77,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_jaguar,0.53,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_jeep,-6.13,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_kia,-32.53,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_land rover,-3.16,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_lexus,18.14,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_lincoln,-10.68,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_mazda,-24.39,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_mercedes-benz,5.93,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_mercury,-40.35,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_mini,-21.01,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_mitsubishi,-34.72,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_morgan,-75.15,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_nissan,-25.32,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_pontiac,-23.0,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_porsche,92.81,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_ram,4.59,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_rover,20.96,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_saturn,-41.36,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_subaru,-14.72,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_tesla,108.32,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_toyota,5.69,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_unknown,-6.47,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_volkswagen,-25.36,vs the dropped (reference) level of the feature,manufacturer
+manufacturer_volvo,-19.39,vs the dropped (reference) level of the feature,manufacturer
+condition_fair,-47.55,vs the dropped (reference) level of the feature,condition
+condition_good,-13.89,vs the dropped (reference) level of the feature,condition
+condition_like new,-1.6,vs the dropped (reference) level of the feature,condition
+condition_new,-6.66,vs the dropped (reference) level of the feature,condition
+condition_salvage,-50.32,vs the dropped (reference) level of the feature,condition
+condition_unknown,0.38,vs the dropped (reference) level of the feature,condition
+fuel_electric,-59.64,vs the dropped (reference) level of the feature,fuel
+fuel_gas,-46.84,vs the dropped (reference) level of the feature,fuel
+fuel_hybrid,-50.53,vs the dropped (reference) level of the feature,fuel
+fuel_other,-40.86,vs the dropped (reference) level of the feature,fuel
+fuel_unknown,-43.72,vs the dropped (reference) level of the feature,fuel
+title_status_lien,3.54,vs the dropped (reference) level of the feature,title
+title_status_missing,-45.07,vs the dropped (reference) level of the feature,title
+title_status_parts only,-56.31,vs the dropped (reference) level of the feature,title
+title_status_rebuilt,-18.92,vs the dropped (reference) level of the feature,title
+title_status_salvage,-25.17,vs the dropped (reference) level of the feature,title
+title_status_unknown,-5.4,vs the dropped (reference) level of the feature,title
+transmission_manual,14.73,vs the dropped (reference) level of the feature,transmission
+transmission_other,9.13,vs the dropped (reference) level of the feature,transmission
+transmission_unknown,1.55,vs the dropped (reference) level of the feature,transmission
+drive_fwd,-16.09,vs the dropped (reference) level of the feature,drive
+drive_rwd,-5.24,vs the dropped (reference) level of the feature,drive
+drive_unknown,-15.18,vs the dropped (reference) level of the feature,drive
+type_bus,-8.85,vs the dropped (reference) level of the feature,type
+type_convertible,26.41,vs the dropped (reference) level of the feature,type
+type_coupe,8.87,vs the dropped (reference) level of the feature,type
+type_hatchback,-10.25,vs the dropped (reference) level of the feature,type
+type_mini-van,-5.55,vs the dropped (reference) level of the feature,type
+type_offroad,24.82,vs the dropped (reference) level of the feature,type
+type_other,13.82,vs the dropped (reference) level of the feature,type
+type_pickup,16.01,vs the dropped (reference) level of the feature,type
+type_sedan,-5.99,vs the dropped (reference) level of the feature,type
+type_truck,16.36,vs the dropped (reference) level of the feature,type
+type_unknown,-4.69,vs the dropped (reference) level of the feature,type
+type_van,9.25,vs the dropped (reference) level of the feature,type
+type_wagon,-3.06,vs the dropped (reference) level of the feature,type
+state_al,-1.74,vs the dropped (reference) level of the feature,state
+state_ar,-3.76,vs the dropped (reference) level of the feature,state
+state_az,-4.8,vs the dropped (reference) level of the feature,state
+state_ca,-5.81,vs the dropped (reference) level of the feature,state
+state_co,-4.28,vs the dropped (reference) level of the feature,state
+state_ct,-20.09,vs the dropped (reference) level of the feature,state
+state_dc,-15.21,vs the dropped (reference) level of the feature,state
+state_de,-15.64,vs the dropped (reference) level of the feature,state
+state_fl,-14.47,vs the dropped (reference) level of the feature,state
+state_ga,-13.67,vs the dropped (reference) level of the feature,state
+state_hi,-5.04,vs the dropped (reference) level of the feature,state
+state_ia,-8.94,vs the dropped (reference) level of the feature,state
+state_id,-3.68,vs the dropped (reference) level of the feature,state
+state_il,-14.58,vs the dropped (reference) level of the feature,state
+state_in,-11.37,vs the dropped (reference) level of the feature,state
+state_ks,-10.16,vs the dropped (reference) level of the feature,state
+state_ky,-8.57,vs the dropped (reference) level of the feature,state
+state_la,-8.67,vs the dropped (reference) level of the feature,state
+state_ma,-20.64,vs the dropped (reference) level of the feature,state
+state_md,-18.66,vs the dropped (reference) level of the feature,state
+state_me,-16.1,vs the dropped (reference) level of the feature,state
+state_mi,-15.59,vs the dropped (reference) level of the feature,state
+state_mn,-13.72,vs the dropped (reference) level of the feature,state
+state_mo,-6.92,vs the dropped (reference) level of the feature,state
+state_ms,-16.53,vs the dropped (reference) level of the feature,state
+state_mt,-0.92,vs the dropped (reference) level of the feature,state
+state_nc,-6.77,vs the dropped (reference) level of the feature,state
+state_nd,-4.65,vs the dropped (reference) level of the feature,state
+state_ne,-11.38,vs the dropped (reference) level of the feature,state
+state_nh,-20.53,vs the dropped (reference) level of the feature,state
+state_nj,-18.07,vs the dropped (reference) level of the feature,state
+state_nm,-7.1,vs the dropped (reference) level of the feature,state
+state_nv,-4.77,vs the dropped (reference) level of the feature,state
+state_ny,-19.06,vs the dropped (reference) level of the feature,state
+state_oh,-19.38,vs the dropped (reference) level of the feature,state
+state_ok,-15.25,vs the dropped (reference) level of the feature,state
+state_or,-0.8,vs the dropped (reference) level of the feature,state
+state_pa,-15.82,vs the dropped (reference) level of the feature,state
+state_ri,-20.15,vs the dropped (reference) level of the feature,state
+state_sc,-8.05,vs the dropped (reference) level of the feature,state
+state_sd,-8.17,vs the dropped (reference) level of the feature,state
+state_tn,-7.33,vs the dropped (reference) level of the feature,state
+state_tx,-14.22,vs the dropped (reference) level of the feature,state
+state_ut,-8.39,vs the dropped (reference) level of the feature,state
+state_va,-15.59,vs the dropped (reference) level of the feature,state
+state_vt,-12.48,vs the dropped (reference) level of the feature,state
+state_wa,-3.6,vs the dropped (reference) level of the feature,state
+state_wi,-16.6,vs the dropped (reference) level of the feature,state
+state_wv,-9.43,vs the dropped (reference) level of the feature,state
+state_wy,-10.65,vs the dropped (reference) level of the feature,state
+model_top_1500 4x4,-1.77,vs the dropped (reference) level of the feature,model
+model_top_1500 slt,0.44,vs the dropped (reference) level of the feature,model
+model_top_200,-4.74,vs the dropped (reference) level of the feature,model
+model_top_2500,22.13,vs the dropped (reference) level of the feature,model
+model_top_3,-14.66,vs the dropped (reference) level of the feature,model
+model_top_3 series,-7.25,vs the dropped (reference) level of the feature,model
+model_top_300,15.15,vs the dropped (reference) level of the feature,model
+model_top_325i,-24.48,vs the dropped (reference) level of the feature,model
+model_top_328i,-18.97,vs the dropped (reference) level of the feature,model
+model_top_328xi,-22.19,vs the dropped (reference) level of the feature,model
+model_top_335i,-3.41,vs the dropped (reference) level of the feature,model
+model_top_3500,23.92,vs the dropped (reference) level of the feature,model
+model_top_4runner,40.64,vs the dropped (reference) level of the feature,model
+model_top_4runner sr5,43.76,vs the dropped (reference) level of the feature,model
+model_top_5 series,14.65,vs the dropped (reference) level of the feature,model
+model_top_500,-14.75,vs the dropped (reference) level of the feature,model
+model_top_528i,-2.86,vs the dropped (reference) level of the feature,model
+model_top_535i,3.84,vs the dropped (reference) level of the feature,model
+model_top_6,-9.31,vs the dropped (reference) level of the feature,model
+model_top_a3,-14.29,vs the dropped (reference) level of the feature,model
+model_top_a4,-15.12,vs the dropped (reference) level of the feature,model
+model_top_a6,-2.87,vs the dropped (reference) level of the feature,model
+model_top_acadia,-6.54,vs the dropped (reference) level of the feature,model
+model_top_accent,-21.98,vs the dropped (reference) level of the feature,model
+model_top_accord,3.89,vs the dropped (reference) level of the feature,model
+model_top_accord ex,8.05,vs the dropped (reference) level of the feature,model
+model_top_accord ex-l,16.33,vs the dropped (reference) level of the feature,model
+model_top_accord lx,7.02,vs the dropped (reference) level of the feature,model
+model_top_altima,-4.49,vs the dropped (reference) level of the feature,model
+model_top_altima 2.5 s,-3.14,vs the dropped (reference) level of the feature,model
+model_top_armada,43.35,vs the dropped (reference) level of the feature,model
+model_top_ats,-5.63,vs the dropped (reference) level of the feature,model
+model_top_avalanche,26.33,vs the dropped (reference) level of the feature,model
+model_top_avalon,-10.43,vs the dropped (reference) level of the feature,model
+model_top_avenger,-24.12,vs the dropped (reference) level of the feature,model
+model_top_beetle,-10.97,vs the dropped (reference) level of the feature,model
+model_top_benz,-13.06,vs the dropped (reference) level of the feature,model
+model_top_benz c300,-7.19,vs the dropped (reference) level of the feature,model
+model_top_benz e350,-14.07,vs the dropped (reference) level of the feature,model
+model_top_c-class,-1.5,vs the dropped (reference) level of the feature,model
+model_top_camaro,14.26,vs the dropped (reference) level of the feature,model
+model_top_camry,-14.96,vs the dropped (reference) level of the feature,model
+model_top_camry le,-12.44,vs the dropped (reference) level of the feature,model
+model_top_camry se,-8.34,vs the dropped (reference) level of the feature,model
+model_top_camry xle,-8.74,vs the dropped (reference) level of the feature,model
+model_top_caravan,-18.47,vs the dropped (reference) level of the feature,model
+model_top_cayenne,-18.83,vs the dropped (reference) level of the feature,model
+model_top_cc,-0.87,vs the dropped (reference) level of the feature,model
+model_top_century,-12.38,vs the dropped (reference) level of the feature,model
+model_top_challenger,31.92,vs the dropped (reference) level of the feature,model
+model_top_charger,13.18,vs the dropped (reference) level of the feature,model
+model_top_cherokee,2.74,vs the dropped (reference) level of the feature,model
+model_top_civic,-7.05,vs the dropped (reference) level of the feature,model
+model_top_civic ex,-6.18,vs the dropped (reference) level of the feature,model
+model_top_civic lx,-4.09,vs the dropped (reference) level of the feature,model
+model_top_cobalt,-45.7,vs the dropped (reference) level of the feature,model
+model_top_colorado,4.18,vs the dropped (reference) level of the feature,model
+model_top_commander,-18.66,vs the dropped (reference) level of the feature,model
+model_top_compass,-24.46,vs the dropped (reference) level of the feature,model
+model_top_cooper,-12.01,vs the dropped (reference) level of the feature,model
+model_top_cooper s,-6.72,vs the dropped (reference) level of the feature,model
+model_top_corolla,-25.91,vs the dropped (reference) level of the feature,model
+model_top_corolla le,-22.81,vs the dropped (reference) level of the feature,model
+model_top_corolla s,-19.57,vs the dropped (reference) level of the feature,model
+model_top_corvette,125.49,vs the dropped (reference) level of the feature,model
+model_top_cr-v,15.56,vs the dropped (reference) level of the feature,model
+model_top_cr-v ex,18.13,vs the dropped (reference) level of the feature,model
+model_top_cr-v ex-l,25.44,vs the dropped (reference) level of the feature,model
+model_top_crosstrek,6.24,vs the dropped (reference) level of the feature,model
+model_top_cruze,-27.98,vs the dropped (reference) level of the feature,model
+model_top_cruze lt,-27.02,vs the dropped (reference) level of the feature,model
+model_top_crv,7.42,vs the dropped (reference) level of the feature,model
+model_top_cts,-15.92,vs the dropped (reference) level of the feature,model
+model_top_cx-5,24.8,vs the dropped (reference) level of the feature,model
+model_top_cx-9,22.26,vs the dropped (reference) level of the feature,model
+model_top_dakota,-4.37,vs the dropped (reference) level of the feature,model
+model_top_dart,-21.38,vs the dropped (reference) level of the feature,model
+model_top_deville,-28.35,vs the dropped (reference) level of the feature,model
+model_top_dts,-30.52,vs the dropped (reference) level of the feature,model
+model_top_durango,14.29,vs the dropped (reference) level of the feature,model
+model_top_e-class,11.67,vs the dropped (reference) level of the feature,model
+model_top_edge,-2.76,vs the dropped (reference) level of the feature,model
+model_top_edge sel,-10.4,vs the dropped (reference) level of the feature,model
+model_top_elantra,-7.45,vs the dropped (reference) level of the feature,model
+model_top_element,21.21,vs the dropped (reference) level of the feature,model
+model_top_enclave,26.65,vs the dropped (reference) level of the feature,model
+model_top_encore,5.56,vs the dropped (reference) level of the feature,model
+model_top_envoy,-33.21,vs the dropped (reference) level of the feature,model
+model_top_equinox,-11.44,vs the dropped (reference) level of the feature,model
+model_top_equinox ls,-16.15,vs the dropped (reference) level of the feature,model
+model_top_equinox lt,-14.49,vs the dropped (reference) level of the feature,model
+model_top_es 300,-19.79,vs the dropped (reference) level of the feature,model
+model_top_es 350,-0.08,vs the dropped (reference) level of the feature,model
+model_top_escalade,42.93,vs the dropped (reference) level of the feature,model
+model_top_escalade esv,48.3,vs the dropped (reference) level of the feature,model
+model_top_escape,-20.81,vs the dropped (reference) level of the feature,model
+model_top_escape se,-16.64,vs the dropped (reference) level of the feature,model
+model_top_escape xlt,-28.16,vs the dropped (reference) level of the feature,model
+model_top_evoque,11.82,vs the dropped (reference) level of the feature,model
+model_top_excursion,59.18,vs the dropped (reference) level of the feature,model
+model_top_expedition,3.57,vs the dropped (reference) level of the feature,model
+model_top_explorer,-0.33,vs the dropped (reference) level of the feature,model
+model_top_explorer limited,9.24,vs the dropped (reference) level of the feature,model
+model_top_explorer sport trac,-2.93,vs the dropped (reference) level of the feature,model
+model_top_explorer xlt,-5.69,vs the dropped (reference) level of the feature,model
+model_top_express,18.76,vs the dropped (reference) level of the feature,model
+model_top_express 2500,7.7,vs the dropped (reference) level of the feature,model
+model_top_express cargo van,12.56,vs the dropped (reference) level of the feature,model
+model_top_f-150,22.57,vs the dropped (reference) level of the feature,model
+model_top_f-150 lariat,39.56,vs the dropped (reference) level of the feature,model
+model_top_f-150 xlt,20.66,vs the dropped (reference) level of the feature,model
+model_top_f-250,32.59,vs the dropped (reference) level of the feature,model
+model_top_f-250 super duty,18.55,vs the dropped (reference) level of the feature,model
+model_top_f-350,33.33,vs the dropped (reference) level of the feature,model
+model_top_f-350 super duty,29.78,vs the dropped (reference) level of the feature,model
+model_top_f150,8.49,vs the dropped (reference) level of the feature,model
+model_top_f150 4x4,6.38,vs the dropped (reference) level of the feature,model
+model_top_f150 supercrew cab,30.25,vs the dropped (reference) level of the feature,model
+model_top_f150 xlt,16.08,vs the dropped (reference) level of the feature,model
+model_top_f250,31.47,vs the dropped (reference) level of the feature,model
+model_top_f250 super duty,19.83,vs the dropped (reference) level of the feature,model
+model_top_f350,21.27,vs the dropped (reference) level of the feature,model
+model_top_f350 super duty,14.75,vs the dropped (reference) level of the feature,model
+model_top_fiesta,-45.06,vs the dropped (reference) level of the feature,model
+model_top_fiesta se,-43.12,vs the dropped (reference) level of the feature,model
+model_top_fit,-11.77,vs the dropped (reference) level of the feature,model
+model_top_fj cruiser,97.06,vs the dropped (reference) level of the feature,model
+model_top_flex,2.28,vs the dropped (reference) level of the feature,model
+model_top_focus,-35.83,vs the dropped (reference) level of the feature,model
+model_top_focus se,-37.27,vs the dropped (reference) level of the feature,model
+model_top_forester,-2.72,vs the dropped (reference) level of the feature,model
+model_top_forte,-5.87,vs the dropped (reference) level of the feature,model
+model_top_frontier,22.98,vs the dropped (reference) level of the feature,model
+model_top_fusion,-22.58,vs the dropped (reference) level of the feature,model
+model_top_fusion se,-20.01,vs the dropped (reference) level of the feature,model
+model_top_fusion sel,-25.36,vs the dropped (reference) level of the feature,model
+model_top_g35,-12.32,vs the dropped (reference) level of the feature,model
+model_top_g37,0.31,vs the dropped (reference) level of the feature,model
+model_top_g6,-25.47,vs the dropped (reference) level of the feature,model
+model_top_genesis,23.35,vs the dropped (reference) level of the feature,model
+model_top_golf,-7.32,vs the dropped (reference) level of the feature,model
+model_top_grand caravan,-6.19,vs the dropped (reference) level of the feature,model
+model_top_grand caravan sxt,-5.31,vs the dropped (reference) level of the feature,model
+model_top_grand cherokee,-2.36,vs the dropped (reference) level of the feature,model
+model_top_grand cherokee laredo,-14.97,vs the dropped (reference) level of the feature,model
+model_top_grand cherokee limited,-1.89,vs the dropped (reference) level of the feature,model
+model_top_grand marquis,4.08,vs the dropped (reference) level of the feature,model
+model_top_grand prix,-17.41,vs the dropped (reference) level of the feature,model
+model_top_gti,33.49,vs the dropped (reference) level of the feature,model
+model_top_hhr,-38.27,vs the dropped (reference) level of the feature,model
+model_top_highlander,12.11,vs the dropped (reference) level of the feature,model
+model_top_impala,-28.41,vs the dropped (reference) level of the feature,model
+model_top_impala ls,-32.29,vs the dropped (reference) level of the feature,model
+model_top_impala lt,-33.12,vs the dropped (reference) level of the feature,model
+model_top_impreza,-13.1,vs the dropped (reference) level of the feature,model
+model_top_is 250,-9.37,vs the dropped (reference) level of the feature,model
+model_top_jetta,-12.66,vs the dropped (reference) level of the feature,model
+model_top_journey,-9.83,vs the dropped (reference) level of the feature,model
+model_top_juke,-3.21,vs the dropped (reference) level of the feature,model
+model_top_lacrosse,0.25,vs the dropped (reference) level of the feature,model
+model_top_lancer,4.12,vs the dropped (reference) level of the feature,model
+model_top_land cruiser,206.54,vs the dropped (reference) level of the feature,model
+model_top_leaf,-7.23,vs the dropped (reference) level of the feature,model
+model_top_legacy,-10.13,vs the dropped (reference) level of the feature,model
+model_top_lesabre,-12.04,vs the dropped (reference) level of the feature,model
+model_top_liberty,-27.96,vs the dropped (reference) level of the feature,model
+model_top_lucerne,-7.55,vs the dropped (reference) level of the feature,model
+model_top_m-class,-3.77,vs the dropped (reference) level of the feature,model
+model_top_malibu,-21.73,vs the dropped (reference) level of the feature,model
+model_top_malibu ls,-16.15,vs the dropped (reference) level of the feature,model
+model_top_malibu lt,-17.76,vs the dropped (reference) level of the feature,model
+model_top_matrix,-21.84,vs the dropped (reference) level of the feature,model
+model_top_maxima,7.09,vs the dropped (reference) level of the feature,model
+model_top_mazda3,2.2,vs the dropped (reference) level of the feature,model
+model_top_mazda6,10.37,vs the dropped (reference) level of the feature,model
+model_top_mdx,3.12,vs the dropped (reference) level of the feature,model
+model_top_mkx,12.27,vs the dropped (reference) level of the feature,model
+model_top_mkz,-3.44,vs the dropped (reference) level of the feature,model
+model_top_murano,4.01,vs the dropped (reference) level of the feature,model
+model_top_mustang,-1.65,vs the dropped (reference) level of the feature,model
+model_top_mustang gt,16.13,vs the dropped (reference) level of the feature,model
+model_top_navigator,14.22,vs the dropped (reference) level of the feature,model
+model_top_odyssey,-0.2,vs the dropped (reference) level of the feature,model
+model_top_odyssey ex-l,9.45,vs the dropped (reference) level of the feature,model
+model_top_optima,14.88,vs the dropped (reference) level of the feature,model
+model_top_optima lx,9.55,vs the dropped (reference) level of the feature,model
+model_top_other,6.89,vs the dropped (reference) level of the feature,model
+model_top_outback,0.8,vs the dropped (reference) level of the feature,model
+model_top_outlander,3.46,vs the dropped (reference) level of the feature,model
+model_top_outlander sport,0.4,vs the dropped (reference) level of the feature,model
+model_top_pacifica,17.81,vs the dropped (reference) level of the feature,model
+model_top_passat,-10.26,vs the dropped (reference) level of the feature,model
+model_top_pathfinder,15.2,vs the dropped (reference) level of the feature,model
+model_top_patriot,-31.13,vs the dropped (reference) level of the feature,model
+model_top_pickup 1500,-4.17,vs the dropped (reference) level of the feature,model
+model_top_pilot,10.43,vs the dropped (reference) level of the feature,model
+model_top_pilot ex-l,17.54,vs the dropped (reference) level of the feature,model
+model_top_prius,-11.42,vs the dropped (reference) level of the feature,model
+model_top_prius hybrid,-15.19,vs the dropped (reference) level of the feature,model
+model_top_pt cruiser,-25.86,vs the dropped (reference) level of the feature,model
+model_top_q5,2.2,vs the dropped (reference) level of the feature,model
+model_top_q50,7.46,vs the dropped (reference) level of the feature,model
+model_top_q7,15.84,vs the dropped (reference) level of the feature,model
+model_top_qx56,19.49,vs the dropped (reference) level of the feature,model
+model_top_qx60,13.6,vs the dropped (reference) level of the feature,model
+model_top_ranger,-8.26,vs the dropped (reference) level of the feature,model
+model_top_ranger xlt,-6.59,vs the dropped (reference) level of the feature,model
+model_top_rav4,-3.61,vs the dropped (reference) level of the feature,model
+model_top_rdx,0.2,vs the dropped (reference) level of the feature,model
+model_top_regal,-1.6,vs the dropped (reference) level of the feature,model
+model_top_renegade,-18.57,vs the dropped (reference) level of the feature,model
+model_top_ridgeline,28.74,vs the dropped (reference) level of the feature,model
+model_top_rio,-20.83,vs the dropped (reference) level of the feature,model
+model_top_rogue,1.31,vs the dropped (reference) level of the feature,model
+model_top_rx,6.7,vs the dropped (reference) level of the feature,model
+model_top_rx 350,9.46,vs the dropped (reference) level of the feature,model
+model_top_s-class,62.9,vs the dropped (reference) level of the feature,model
+model_top_s60,-1.12,vs the dropped (reference) level of the feature,model
+model_top_santa fe,10.84,vs the dropped (reference) level of the feature,model
+model_top_santa fe sport,32.68,vs the dropped (reference) level of the feature,model
+model_top_scion tc,-32.23,vs the dropped (reference) level of the feature,model
+model_top_scion xb,-23.35,vs the dropped (reference) level of the feature,model
+model_top_sebring,-24.76,vs the dropped (reference) level of the feature,model
+model_top_sedona,-0.89,vs the dropped (reference) level of the feature,model
+model_top_sentra,-16.45,vs the dropped (reference) level of the feature,model
+model_top_sentra s,-14.91,vs the dropped (reference) level of the feature,model
+model_top_sentra sv,-13.6,vs the dropped (reference) level of the feature,model
+model_top_sequoia,19.44,vs the dropped (reference) level of the feature,model
+model_top_sienna,-3.52,vs the dropped (reference) level of the feature,model
+model_top_sienna le,-10.79,vs the dropped (reference) level of the feature,model
+model_top_sienna xle,10.61,vs the dropped (reference) level of the feature,model
+model_top_sierra,18.99,vs the dropped (reference) level of the feature,model
+model_top_sierra 1500,16.73,vs the dropped (reference) level of the feature,model
+model_top_sierra 2500hd,21.02,vs the dropped (reference) level of the feature,model
+model_top_silverado,31.79,vs the dropped (reference) level of the feature,model
+model_top_silverado 1500,29.5,vs the dropped (reference) level of the feature,model
+model_top_silverado 1500 lt,33.79,vs the dropped (reference) level of the feature,model
+model_top_silverado 1500 lt 4x4,30.84,vs the dropped (reference) level of the feature,model
+model_top_silverado 2500,46.76,vs the dropped (reference) level of the feature,model
+model_top_silverado 2500hd,44.56,vs the dropped (reference) level of the feature,model
+model_top_silverado 3500,29.69,vs the dropped (reference) level of the feature,model
+model_top_silverado 3500hd,29.38,vs the dropped (reference) level of the feature,model
+model_top_sonata,3.31,vs the dropped (reference) level of the feature,model
+model_top_sonata gls,5.64,vs the dropped (reference) level of the feature,model
+model_top_sonic,-36.3,vs the dropped (reference) level of the feature,model
+model_top_sorento,18.22,vs the dropped (reference) level of the feature,model
+model_top_soul,-1.26,vs the dropped (reference) level of the feature,model
+model_top_spark,-39.45,vs the dropped (reference) level of the feature,model
+model_top_sport,22.27,vs the dropped (reference) level of the feature,model
+model_top_sportage,13.6,vs the dropped (reference) level of the feature,model
+model_top_srx,-7.83,vs the dropped (reference) level of the feature,model
+model_top_suburban,28.58,vs the dropped (reference) level of the feature,model
+model_top_super duty f-250,15.55,vs the dropped (reference) level of the feature,model
+model_top_super duty f-250 srw,24.55,vs the dropped (reference) level of the feature,model
+model_top_super duty f-350 srw,12.49,vs the dropped (reference) level of the feature,model
+model_top_tacoma,28.75,vs the dropped (reference) level of the feature,model
+model_top_tahoe,34.66,vs the dropped (reference) level of the feature,model
+model_top_tahoe lt,29.78,vs the dropped (reference) level of the feature,model
+model_top_taurus,-30.83,vs the dropped (reference) level of the feature,model
+model_top_terrain,-14.08,vs the dropped (reference) level of the feature,model
+model_top_tiguan,5.66,vs the dropped (reference) level of the feature,model
+model_top_titan,33.44,vs the dropped (reference) level of the feature,model
+model_top_tl,-4.47,vs the dropped (reference) level of the feature,model
+model_top_tlx,7.21,vs the dropped (reference) level of the feature,model
+model_top_town & country,7.0,vs the dropped (reference) level of the feature,model
+model_top_town and country,10.12,vs the dropped (reference) level of the feature,model
+model_top_town car,-10.39,vs the dropped (reference) level of the feature,model
+model_top_trailblazer,-24.82,vs the dropped (reference) level of the feature,model
+model_top_transit,24.48,vs the dropped (reference) level of the feature,model
+model_top_transit connect,-7.98,vs the dropped (reference) level of the feature,model
+model_top_traverse,0.14,vs the dropped (reference) level of the feature,model
+model_top_traverse lt,-0.01,vs the dropped (reference) level of the feature,model
+model_top_trax,-26.34,vs the dropped (reference) level of the feature,model
+model_top_tsx,-0.11,vs the dropped (reference) level of the feature,model
+model_top_tucson,14.17,vs the dropped (reference) level of the feature,model
+model_top_tundra,30.48,vs the dropped (reference) level of the feature,model
+model_top_tundra sr5,15.25,vs the dropped (reference) level of the feature,model
+model_top_veloster,-4.94,vs the dropped (reference) level of the feature,model
+model_top_venza,7.01,vs the dropped (reference) level of the feature,model
+model_top_versa,-30.47,vs the dropped (reference) level of the feature,model
+model_top_vibe,-2.38,vs the dropped (reference) level of the feature,model
+model_top_vue,-0.84,vs the dropped (reference) level of the feature,model
+model_top_wrangler,69.28,vs the dropped (reference) level of the feature,model
+model_top_wrangler sport,53.52,vs the dropped (reference) level of the feature,model
+model_top_wrangler unlimited,60.28,vs the dropped (reference) level of the feature,model
+model_top_wrangler unlimited rubicon,76.8,vs the dropped (reference) level of the feature,model
+model_top_wrangler unlimited sahara,67.7,vs the dropped (reference) level of the feature,model
+model_top_wrangler unlimited sport,47.7,vs the dropped (reference) level of the feature,model
+model_top_wrx,22.28,vs the dropped (reference) level of the feature,model
+model_top_x1,-2.25,vs the dropped (reference) level of the feature,model
+model_top_x3,-4.98,vs the dropped (reference) level of the feature,model
+model_top_x5,1.06,vs the dropped (reference) level of the feature,model
+model_top_xc60,29.58,vs the dropped (reference) level of the feature,model
+model_top_xc90,6.41,vs the dropped (reference) level of the feature,model
+model_top_xterra,4.48,vs the dropped (reference) level of the feature,model
+model_top_xts,9.32,vs the dropped (reference) level of the feature,model
+model_top_yaris,-37.79,vs the dropped (reference) level of the feature,model
+model_top_yukon,15.68,vs the dropped (reference) level of the feature,model
+model_top_yukon denali,18.71,vs the dropped (reference) level of the feature,model
+model_top_yukon xl,17.51,vs the dropped (reference) level of the feature,model
+car_age_per_year,-6.66,per 1 extra year of age,car_age_per_year
