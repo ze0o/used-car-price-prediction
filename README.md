@@ -5,7 +5,8 @@ Capstone project (General Assembly Data Science, Bahrain). Used-car prices on Cr
 model that estimates a car's **fair asking price** from its age, mileage, make, condition and other details, so
 sellers can price realistically and buyers can spot bad deals.
 
-**Status:** stage 7 of 14 complete (Course fit & limitations). Lightning Talk 1 material ready; modeling is next.
+**Status:** stage 10 of 14 complete (Tree models). Best model so far: **Random Forest, typical error $3,231 (R² 0.80)**,
+against $9,675 for a "predict the median" baseline.
 
 ## Problem statement
 
@@ -43,6 +44,29 @@ Details: [data/README.md](data/README.md)
 
 Details: [notebooks/02_eda.ipynb](notebooks/02_eda.ipynb)
 
+## Model results (test set, 41,529 cars)
+
+All models predict `log(price)` and are scored in dollars after turning the prediction back with `exp`.
+
+| Model | MAE | RMSE | R² | Median error |
+| --- | --- | --- | --- | --- |
+| **Random Forest** | **$3,231** | $6,184 | **0.804** | $1,746 |
+| Gradient Boosting | $3,303 | $6,348 | 0.793 | $1,761 |
+| ElasticNet | $4,149 | $7,768 | 0.690 | $2,152 |
+| Ridge | $4,150 | $7,863 | 0.683 | $2,150 |
+| Linear Regression | $4,151 | $7,886 | 0.681 | $2,151 |
+| Lasso | $4,151 | $7,830 | 0.686 | $2,150 |
+| Decision Tree | $4,196 | $7,433 | 0.717 | $2,354 |
+| Baseline (median price) | $9,675 | $14,553 | −0.087 | $6,650 |
+
+- The ensembles cut the typical error by 22% compared with the best linear model, and by 67% compared with the baseline.
+- Linear Regression explains the drivers in plain numbers: each extra year of age lowers the price by about 6.7%,
+  holding the other features fixed ([results/linear_coefficients.csv](results/linear_coefficients.csv)).
+- Weakest spot: cars under $5,000, where the error is 75% of the price on average (junk and parts cars).
+
+Details: [04_linear_models.ipynb](notebooks/04_linear_models.ipynb), [05_tree_models.ipynb](notebooks/05_tree_models.ipynb),
+[results/metrics.csv](results/metrics.csv)
+
 ## Repository structure
 
 ```text
@@ -57,10 +81,19 @@ used-car-price-prediction/
 │   └── 04_course_fit_and_limitations.md
 ├── notebooks/
 │   ├── 01_data_overview.ipynb
-│   └── 02_eda.ipynb
+│   ├── 02_eda.ipynb
+│   ├── 03_preprocessing_and_baseline.ipynb
+│   ├── 04_linear_models.ipynb
+│   └── 05_tree_models.ipynb
+├── results/
+│   ├── metrics.csv
+│   ├── best_params.json
+│   ├── linear_coefficients.csv
+│   └── test_predictions.csv
 ├── src/
 │   ├── make_slim.py
-│   └── clean.py
+│   ├── clean.py
+│   └── prep.py
 ├── requirements.txt
 └── README.md
 ```
@@ -69,6 +102,9 @@ used-car-price-prediction/
 
 | Stage | Date | What was added |
 | --- | --- | --- |
+| 10. Tree models | 2026-11-02 | `notebooks/05_tree_models.ipynb`: Decision Tree, Random Forest and Gradient Boosting tuned with `GridSearchCV`; overfitting check, all-model comparison, error by price band, `results/test_predictions.csv` |
+| 9. Linear models | 2026-11-02 | `notebooks/04_linear_models.ipynb`: Linear Regression, Ridge, Lasso, ElasticNet; log vs raw price target, residuals, coefficients (`results/linear_coefficients.csv`) |
+| 8. Preprocessing & baseline | 2026-11-02 | `src/prep.py` and `notebooks/03_preprocessing_and_baseline.ipynb`: split, leakage check, top-300 models, linear and tree preprocessors, median baseline. Repost rule in `src/clean.py` now matches copies across regions (test cars with an exact twin in training: 9.5% → 0) |
 | 7. Course fit & limitations | 2026-11-01 | `docs/04_course_fit_and_limitations.md`: Lightning Talk checklist, scope vs the course, limitations, open questions |
 | 6. Preprocessing plan | 2026-11-01 | `docs/03_preprocessing_plan.md`: log target, imputing, encoding, scaling, models to compare |
 | 5. Target & features | 2026-11-01 | `docs/02_target_and_features.md`: target choice, row rules, feature decisions |
@@ -77,7 +113,7 @@ used-car-price-prediction/
 | 2. Problem statement | 2026-11-01 | `docs/01_problem_statement.md`: business problem, audience, goals, success metrics |
 | 1. Project setup | 2026-11-01 | Slim dataset (`data/vehicles_slim.csv.gz`, `src/make_slim.py`), cleaning rules (`src/clean.py`), README, `requirements.txt`, `.gitignore` |
 
-**Next:** Lightning Talk slides, then stage 8: preprocessing pipeline and baseline model.
+**Next:** stage 11: explain the predictions (feature importance and partial dependence, lesson 16).
 
 ## How to run
 
@@ -86,4 +122,6 @@ pip install -r requirements.txt
 jupyter notebook notebooks/
 ```
 
-Run the notebooks in order. Both read `data/vehicles_slim.csv.gz`; `02_eda.ipynb` applies the cleaning rules in `src/clean.py`.
+Run the notebooks in order. All of them read `data/vehicles_slim.csv.gz` and apply the cleaning rules in `src/clean.py`;
+notebooks 03–05 also use `src/prep.py`, so every model gets the same split and features. Notebook 05 takes about
+70 minutes (mostly Gradient Boosting, which runs on one CPU core); the others take a few minutes each.

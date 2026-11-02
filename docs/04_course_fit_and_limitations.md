@@ -69,4 +69,7 @@ are too slow for about 166,000 training rows.
 - [ ] Confirm the dataset is approved by the IAs.
 - [ ] Should model years before 1990 be a separate (collector) model later, or stay out of scope?
 - [ ] Keep `paint_color` and a reduced `model` feature, or leave them out for simplicity?
-- [ ] Which models go in the final deck? Suggested: Linear Regression (readable), Ridge, Random Forest and Gradient Boosting.
+- [x] Which models go in the final deck? Random Forest (best: MAE $3,231, R² 0.80), Gradient Boosting (runner-up,
+  $3,303), Linear Regression (readable coefficients) and the median baseline. See [05_tree_models.ipynb](../notebooks/05_tree_models.ipynb).
+- [ ] Part of Random Forest's lead may come from near-identical reposts (slightly changed price or mileage) that the
+  repost rule cannot catch. Check in stage 11 whether its advantage over Gradient Boosting holds.

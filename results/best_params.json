@@ -8,5 +8,17 @@
   "ElasticNet": {
     "elasticnet__alpha": 0.0001,
     "elasticnet__l1_ratio": 0.2
+  },
+  "Decision Tree": {
+    "decisiontreeregressor__max_depth": 15,
+    "decisiontreeregressor__min_samples_leaf": 5
+  },
+  "Random Forest": {
+    "randomforestregressor__max_features": 0.3,
+    "randomforestregressor__min_samples_leaf": 1
+  },
+  "Gradient Boosting": {
+    "gradientboostingregressor__max_depth": 6,
+    "gradientboostingregressor__n_estimators": 600
   }
 }
