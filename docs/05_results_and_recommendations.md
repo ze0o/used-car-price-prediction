@@ -30,6 +30,7 @@ and bigger engines add large premiums.
 | ElasticNet | $4,149 | $7,768 | 0.690 | $2,152 | – |
 | Decision Tree | $4,196 | $7,433 | 0.717 | $2,354 | – |
 | Gradient Boosting | $3,303 | $6,348 | 0.793 | $1,761 | 59.2% |
+| Neural Network (Keras, stage 16) | $3,559 | $6,819 | 0.762 | $1,843 | 56.9% |
 | **Random Forest** | **$3,231** | **$6,184** | **0.804** | **$1,746** | **59.5%** |
 
 - **The ensembles win clearly:** Random Forest's MAE is 22% lower than the best linear model and 67% lower than the baseline.
@@ -127,7 +128,16 @@ coefficients:
 
 ## Next steps
 
-- Add a fixed rule that treats very low odometer readings on old cars as missing, and re-run notebooks 03–07.
 - Re-validate on a later scrape of Craigslist to measure how much prices have moved since 2021.
 - Try grouping near-identical listings so that one car can never sit in both training and test.
-- Build the presentation: problem, data, EDA, models, honest error, pricing tool, drivers, recommendations, limitations.
+- Add the truck-brand group from the clustering stage to the main model (−1% MAE in a first test).
+- Try averaging the Random Forest and the neural network, which is better on cars under $5,000.
+
+## Added later: clustering and a neural network (stages 15–16)
+
+- **DBSCAN** flags 5% of ads as unusual, including every odometer-typo car. Turning that into a cleaning rule did
+  not improve the model, so the recommendation is to **flag these ads for the seller** rather than change them.
+- **K-Means segments** show where the pricing tool can be trusted: 85–89% of prices fall inside the range for
+  newer cars, only 71–73% for cars around 15 years old. A marketplace should say so next to the range.
+- **A Keras neural network** (MAE $3,559, R² 0.762) confirms the ranking from a different method: Random Forest
+  stays the main model.

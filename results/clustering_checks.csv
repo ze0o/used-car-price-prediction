@@ -1,0 +1,6 @@
+model,MAE,MAE under $5k,median % error,MAE on the rule's test cars
+Random Forest (as before),3231.4,1785.9,15.8,3190.0
+Random Forest + odometer rule,3231.4,1782.2,15.6,3233.0
+Random Forest (as before),3231.4,1785.9,15.8,
++ make group,3199.6,1778.2,15.5,
++ make group + segment,3210.4,1780.1,15.6,

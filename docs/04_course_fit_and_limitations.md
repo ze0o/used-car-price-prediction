@@ -22,7 +22,8 @@
 
 ## Fit with the course
 
-Everything in this project comes from the supervised ML lessons (01–17).
+Everything in this project comes from the course: the supervised ML lessons (01–17), the unsupervised lessons
+(module 04) and the deep-learning lessons (module 05).
 
 | Area | Course lessons | Used for |
 | --- | --- | --- |
@@ -35,6 +36,10 @@ Everything in this project comes from the supervised ML lessons (01–17).
 | Pipelines, ColumnTransformer, SimpleImputer, GridSearchCV | 13 | Leak-free preprocessing and tuning |
 | KNN, Decision Trees, Bagging, Random Forest, Gradient Boosting | 08, 14, 15 | Non-linear models |
 | Feature importance, partial dependence, SHAP (`KernelExplainer`) | 16 | Explaining the price drivers (notebook 06) |
+| K-Means, inertia / elbow, silhouette score | Unsupervised 01, clustering lab | Car segments (notebook 08) |
+| DBSCAN, manual `eps` / `min_samples` search, noise points | Unsupervised 02, clustering lab | Spotting unusual ads, odometer-typo check (notebook 08) |
+| Agglomerative clustering, dendrogram | Unsupervised 02 | Grouping car makes (notebook 08) |
+| Gradient descent, Keras `Sequential` / `Dense` / ReLU, Adam, epochs, batch size, `EarlyStopping`, loss history | Deep learning 01, 03 | Neural network regression (notebook 09) |
 
 **Note on regression versions:** the course notebooks show KNN, trees and ensembles on classification problems.
 This project uses the regression versions of the same algorithms (`KNeighborsRegressor`, `DecisionTreeRegressor`,
@@ -45,8 +50,9 @@ regression twin of the `DummyClassifier` from lesson 08.
 Left out because the course does not teach them: text / NLP on `description`, target encoding for `model`
 (replaced by top-N + "other"), ANOVA and Cramér's V (replaced by median-price-per-category tables), and
 `TransformedTargetRegressor` (replaced by taking the log of `y` by hand and `np.exp` on the predictions).
-Support Vector Machines (lesson 17) are not planned: the course shows them for classification, and kernel SVMs
-are too slow for about 166,000 training rows.
+Support Vector Machines (lesson 17) are not used: the course shows them for classification, and kernel SVMs
+are too slow for about 166,000 training rows. Dropout and other tools against overfitting in neural networks are
+not covered yet, so notebook 09 uses only early stopping.
 
 ## Limitations
 
@@ -78,5 +84,10 @@ are too slow for about 166,000 training rows.
 - [x] Part of Random Forest's lead may come from near-identical reposts. Checked in stage 11: on test cars without a
   near twin in training, Random Forest ($3,524) and Gradient Boosting ($3,546) are tied; about $3,500 is the realistic
   error for a new listing.
-- [ ] Odometer typos: 1,152 cars aged 8+ show 1,000 miles or less (median price $5,499), likely "150" typed for
-  150,000. Add a fixed rule that sets these readings to missing in a later version?
+- [x] Odometer typos: 1,152 cars aged 8+ show 1,000 miles or less (median price $5,499), likely "150" typed for
+  150,000. Checked in stage 15: DBSCAN flags all of them, but setting them to missing did not improve the model
+  (MAE $3,231 both ways), so the rule was not adopted. These ads are better flagged for the seller.
+- [ ] Add the make group (US truck brands vs the rest, from agglomerative clustering) to the main model? It lowered
+  MAE by 1% ($3,231 → $3,200) in stage 15, but needs re-tuning and re-running notebooks 05–07.
+- [ ] Average the Random Forest and the neural network? The network is better on cars under $5,000, where the
+  forest is weakest (stage 16).

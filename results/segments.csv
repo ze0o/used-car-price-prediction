@@ -1,0 +1,5 @@
+segment,test cars,median price,MAE ($),median % error,inside 80% range (%)
+"newer 6-cyl, 6 yrs, 62k mi",15230,22000.0,4717.0,13.5,85.1
+"older 8-cyl, 15 yrs, 151k mi",5164,11900.0,3256.0,18.8,73.1
+"newer 4-cyl, 7 yrs, 84k mi",8022,10500.0,1996.0,12.6,88.9
+"older 4-6 cyl, 15 yrs, 159k mi",13113,5950.0,2252.0,20.7,71.3

@@ -5,7 +5,7 @@ Capstone project (General Assembly Data Science, Bahrain). Used-car prices on Cr
 model that estimates a car's **fair asking price** from its age, mileage, make, condition and other details, so
 sellers can price realistically and buyers can spot bad deals.
 
-**Status:** all 14 stages complete (presentation ready). Best model: **Random Forest, typical error $3,231 on the test set
+**Status:** 16 stages complete (stages 15–16 add the unsupervised and deep-learning modules). Best model: **Random Forest, typical error $3,231 on the test set
 (R² 0.80)**, about **$3,500 on genuinely new listings**, against $9,675 for a "predict the median" baseline.
 
 ## Problem statement
@@ -52,6 +52,7 @@ All models predict `log(price)` and are scored in dollars after turning the pred
 | --- | --- | --- | --- | --- |
 | **Random Forest** | **$3,231** | $6,184 | **0.804** | $1,746 |
 | Gradient Boosting | $3,303 | $6,348 | 0.793 | $1,761 |
+| Neural Network (Keras) | $3,559 | $6,819 | 0.762 | $1,843 |
 | ElasticNet | $4,149 | $7,768 | 0.690 | $2,152 |
 | Ridge | $4,150 | $7,863 | 0.683 | $2,150 |
 | Linear Regression | $4,151 | $7,886 | 0.681 | $2,151 |
@@ -67,8 +68,11 @@ All models predict `log(price)` and are scored in dollars after turning the pred
   within 1%). On the other cars Random Forest ($3,524) and Gradient Boosting ($3,546) are tied, so about $3,500 is
   the realistic error for a new listing ([results/near_twin_check.csv](results/near_twin_check.csv)).
 
+- The neural network (stage 16) ranks third: 14% better than Linear Regression, 10% behind Random Forest, but better
+  than the forest on cars under $5,000 ($1,707 vs $1,796).
+
 Details: [04_linear_models.ipynb](notebooks/04_linear_models.ipynb), [05_tree_models.ipynb](notebooks/05_tree_models.ipynb),
-[results/metrics.csv](results/metrics.csv)
+[09_neural_network.ipynb](notebooks/09_neural_network.ipynb), [results/metrics.csv](results/metrics.csv)
 
 ## What drives the price (Random Forest, feature importance + partial dependence + SHAP)
 
@@ -95,6 +99,16 @@ training data.
 
 Details: [07_pricing_tool.ipynb](notebooks/07_pricing_tool.ipynb), [results/pricing_accuracy.csv](results/pricing_accuracy.csv)
 
+## Clustering (module 04: K-Means, DBSCAN, agglomerative)
+
+| Method | What it found |
+| --- | --- |
+| DBSCAN | 5% of ads are unusual. It caught every odometer-typo car (≤1,000 miles at 8+ years), 63% of cars over 25 years and ~30% of extreme prices. A fixed rule built from it did **not** improve the model (MAE $3,231 both ways), so these ads are flagged rather than changed |
+| K-Means (k = 4) | Four car segments. The pricing tool works best for newer cars (85–89% of prices inside the range) and worst for older ones (71–73%). Old V8 trucks are worth about twice other cars of the same age |
+| Agglomerative + dendrogram | The best split of 35 makes is US truck brands (Chevrolet, Ford, GMC, Ram) vs the rest. As a feature it lowers MAE by 1% ($3,231 → $3,200) |
+
+Details: [08_clustering.ipynb](notebooks/08_clustering.ipynb), [results/segments.csv](results/segments.csv)
+
 ## Repository structure
 
 ```text
@@ -115,7 +129,9 @@ used-car-price-prediction/
 │   ├── 04_linear_models.ipynb
 │   ├── 05_tree_models.ipynb
 │   ├── 06_explainability.ipynb
-│   └── 07_pricing_tool.ipynb
+│   ├── 07_pricing_tool.ipynb
+│   ├── 08_clustering.ipynb
+│   └── 09_neural_network.ipynb
 ├── results/
 │   ├── metrics.csv
 │   ├── best_params.json
@@ -124,7 +140,10 @@ used-car-price-prediction/
 │   ├── near_twin_check.csv
 │   ├── feature_importance.csv
 │   ├── pricing_accuracy.csv
-│   └── price_range.json
+│   ├── price_range.json
+│   ├── segments.csv
+│   ├── make_groups.csv
+│   └── clustering_checks.csv
 ├── src/
 │   ├── make_slim.py
 │   ├── clean.py
@@ -137,6 +156,8 @@ used-car-price-prediction/
 
 | Stage | Date | What was added |
 | --- | --- | --- |
+| 16. Neural network | 2026-11-18 | `notebooks/09_neural_network.ipynb`: Keras regression following the course recipe (train/validation/test, scaling, ReLU layers, Adam, `EarlyStopping`, loss curves); the lesson's 30-20-15 network beats a wider one that overfits; test MAE $3,559, R² 0.762 |
+| 15. Clustering | 2026-11-18 | `notebooks/08_clustering.ipynb`: DBSCAN check for unusual ads and the odometer-typo rule (tested, not adopted), K-Means car segments with elbow and silhouette, error and range coverage by segment, agglomerative make groups with a dendrogram, clusters tested as features |
 | 14. Presentation | 2026-11-03 | 18-slide deck in the Lightning Talk structure (Hook → Problem → Audience → Solution → Data → EDA → Success metrics), plus results, price drivers, pricing tool, recommendations and limits; speaker notes on every slide |
 | 13. Results & recommendations | 2026-11-03 | `docs/05_results_and_recommendations.md`: final model, model comparison, honest error, pricing tool, price drivers, goals check, recommendations, limitations, next steps |
 | 12. Pricing tool | 2026-11-02 | `notebooks/07_pricing_tool.ipynb`: share of estimates within 10/20/30%, 80% fair price range from a validation split (80.0% test coverage), deal flags and what they catch, `price_car()` demo; `near_twin_mask()` moved into `src/prep.py` |
@@ -152,7 +173,7 @@ used-car-price-prediction/
 | 2. Problem statement | 2026-11-01 | `docs/01_problem_statement.md`: business problem, audience, goals, success metrics |
 | 1. Project setup | 2026-11-01 | Slim dataset (`data/vehicles_slim.csv.gz`, `src/make_slim.py`), cleaning rules (`src/clean.py`), README, `requirements.txt`, `.gitignore` |
 
-**Next:** optional: fix odometer typos, re-validate on newer ads, and a simple web page for the pricing tool.
+**Next:** optional: add the truck-brand feature to the main model, try averaging the forest and the network (the network is better on cheap cars), re-validate on newer ads.
 
 ## How to run
 
@@ -162,6 +183,6 @@ jupyter notebook notebooks/
 ```
 
 Run the notebooks in order. All of them read `data/vehicles_slim.csv.gz` and apply the cleaning rules in `src/clean.py`;
-notebooks 03–05 also use `src/prep.py`, so every model gets the same split and features. Notebook 05 takes about
-70 minutes (mostly Gradient Boosting, which runs on one CPU core) and notebook 06 about 7 minutes and notebook 07 about 3 minutes; the others take a
-few minutes each.
+notebooks 03–09 also use `src/prep.py`, so every model gets the same split and features. Notebook 05 takes about
+70 minutes (mostly Gradient Boosting, which runs on one CPU core) and notebook 06 about 7 minutes; notebooks 07–09 take 2–5 minutes each and the others a
+few minutes. Notebook 09 needs TensorFlow (`pip install tensorflow`, which includes Keras).

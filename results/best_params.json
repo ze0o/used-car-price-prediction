@@ -20,5 +20,11 @@
   "Gradient Boosting": {
     "gradientboostingregressor__max_depth": 6,
     "gradientboostingregressor__n_estimators": 600
+  },
+  "Neural Network": {
+    "layers": "30-20-15",
+    "learning_rate": 0.01,
+    "batch_size": 64,
+    "epochs": 15
   }
 }
